@@ -1,0 +1,50 @@
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+(\.[0-9]+)*(\-(beta|alpha)[0-9]+)?$/
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+(\.[0-9]+)*(\-(beta|alpha)[0-9]+)?$/
+              
+version: 2 
+jobs:
+  build:
+    working_directory: ~/rest-api
+    docker:
+      - image: circleci/node
+      - image: mongo
+    environment:
+      - DB_URL: mongodb://<user>:<password>@<ip>:<port>
+      - DB_NAME: app-test
+      - TEMP_UPLOADS: <path_temp>
+      - TEMP_DOWNLOADS: <path_temp>
+    steps:
+      - checkout
+      #- run:
+      #    name: create-temp
+      #    command: mkdir temp
+      #- run:
+      #    name: install-npm
+      #    command: npm install
+      #here you must to write your test code
+  deploy:
+    machine: true
+    environment:
+      - HEROKU_API_KEY: <api-key>
+      - HEROKU_APP_NAME: <app-name>
+    steps:
+      - checkout
+      - run:
+          name: run-heroku-dev
+          command: git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master

@@ -1,0 +1,63 @@
+{
+  "name": "basic-app",
+  "version": "0.0.1",
+  "description": "Basic application Api Rest with Mongoose",
+  "main": "./bin/www",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "cross-env": "^5.2.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-joi-validation": "^0.3.0",
+    "express-session": "^1.15.6",
+    "joi": "^14.3.1",
+    "lodash": "^4.17.11",
+    "mongodb": "^3.1.10",
+    "mongoose": "^5.5.5",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.1",
+    "request": "^2.88.0",
+    "serve-favicon": "^2.5.0",
+    "uuid": "^3.3.2",
+    "winston": "^3.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.14.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "jest": "^24.1.0",
+    "nodemon": "^1.18.9",
+    "supertest": "^3.4.2"
+  },
+  "scripts": {
+    "test": "jest --detectOpenHandles --forceExit",
+    "eslint": "eslint",
+    "start": "npm run production",
+    "development": "cross-env NODE_ENV=development ./node_modules/.bin/nodemon ./bin/www",
+    "production": "cross-env NODE_ENV=production node ./bin/www"
+  },
+  "keywords": [
+    "app",
+    "web",
+    "nodejs",
+    "mongoose",
+    "mongo",
+    "rest",
+    "api"
+  ],
+  "author": "Cristhian Won <cristhian.won@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GatoSnake/app-rest-nodejs.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GatoSnake/app-rest-nodejs/issues"
+  },
+  "homepage": "https://github.com/GatoSnake/app-rest-nodejs#readme"
+}

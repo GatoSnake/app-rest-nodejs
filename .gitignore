@@ -1,0 +1,9 @@
+# exclude
+node_modules/
+package-lock.json
+npm-debug.log
+logs/app.log
+logs/error.log
+temp/
+config/env/*.bkp
+docker/**/data*
